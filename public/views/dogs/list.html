@@ -1,0 +1,10 @@
+<section data-ng-controller="DogsController" data-ng-init="find()">
+  <ul class="dogs unstyled">
+    <li data-ng-repeat="dog in dogs">
+      <span>{{dog.created}}</span> /
+      <span>{{dog.user.name}}</span>
+      <h2><a data-ng-href="#!/dogs/{{dog._id}}">{{dog.name}}</a></h2>
+    </li>
+  </ul>
+  <h1 data-ng-hide="!dogs || dogs.length">No dogs yet. <br> Why don't you <a href="/#!/dogs/create">Create One</a>?</h1>
+</section>

@@ -1,0 +1,13 @@
+<section data-ng-controller="DogsController" data-ng-init="findOne()">
+    <span>{{dog.created | date:'medium'}}</span>/
+    <span>{{dog.user.name}}</span>
+    <h2>{{dog.name}}</h2>
+    <div data-ng-show="global.user._id == dog.user._id">
+        <a class="btn" href="/#!/dogs/{{dog._id}}/edit">
+          <i class="icon-edit"></i>
+        </a>
+        <a class="btn" data-ng-click="remove();">
+            <i class="icon-trash"></i>
+        </a>
+    </div>
+</section>
