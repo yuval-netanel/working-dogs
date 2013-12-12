@@ -70,6 +70,17 @@ module.exports = function(app, passport, auth) {
     //Finish with setting up the articleId param
     app.param('articleId', articles.article);
 
+    //Dogs Routes
+    var dogs = require('../app/controllers/dogs');
+    app.get('/dogs', dogs.all);
+    app.post('/dogs', auth.requiresLogin, dogs.create);
+    app.get('/dogs/:dogId', dogs.show);
+    app.put('/dogs/:dogId', auth.requiresLogin, auth.dog.hasAuthorization, dogs.update);
+    app.del('/dogs/:dogId', auth.requiresLogin, auth.dog.hasAuthorization, dogs.destroy);
+
+    //Finish with setting up the articleId param
+    app.param('dogId', dogs.dog);
+
     //Home route
     var index = require('../app/controllers/index');
     app.get('/', index.render);

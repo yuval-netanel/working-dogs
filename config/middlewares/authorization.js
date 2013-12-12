@@ -31,3 +31,15 @@ exports.article = {
         next();
     }
 };
+
+/**
+ * Dog authorizations routing middleware
+ */
+exports.dog = {
+    hasAuthorization: function(req, res, next) {
+        if (req.dog.user.id != req.user.id) {
+            return res.send(401, 'User is not authorized');
+        }
+        next();
+    }
+};

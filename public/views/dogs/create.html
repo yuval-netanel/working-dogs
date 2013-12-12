@@ -1,0 +1,19 @@
+<section data-ng-controller="DogsController">
+  <form class="form-horizontal" data-ng-submit="create()">
+    <div class="control-group">
+      <label class="control-label" for="name">Name</label>
+      <div class="controls">
+        <input type="name" data-ng-model="name" id="name" placeholder="Name" required>
+      </div>
+      <div class="controls">
+<input type="file" accept="image/*" image="image"/>
+<img ng-show="image" ng-src="{{image.url}}" type="{{image.file.type}}" />
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn">
+      </div>
+    </div>
+  </form>
+</section>
