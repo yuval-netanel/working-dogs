@@ -3,6 +3,8 @@
     <li data-ng-repeat="dog in dogs">
       <span>{{dog.created}}</span> /
       <span>{{dog.user.name}}</span>
+        </br>
+      <gravatar-image data-gravatar-email="dog.gravatar" data-gravatar-size="60" data-gravatar-default="mm" ></gravatar-image>
       <h2><a data-ng-href="#!/dogs/{{dog._id}}">{{dog.name}}</a></h2>
     </li>
   </ul>

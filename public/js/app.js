@@ -1,4 +1,4 @@
-angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.articles', 'mean.dogs']);
+angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.articles', 'mean.dogs', 'ui-gravatar', 'md5']);
 
 angular.module('mean.system', []);
 angular.module('mean.articles', []);

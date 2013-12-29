@@ -7,9 +7,17 @@
         <input type="text" data-ng-model="dog.name" id="name" placeholder="Name" required>
         </input>
       </div>
+
+      <label class="control-label" for="gravatar">Gravatar</label>
       <div class="controls">
-        <input ng-model='file' type="file" accept="image/*" />
+        <input type="text" data-ng-model="dog.gravatar" id="gravatar" placeholder="Gravatar" required>
+        </input>
       </div>
+
+      <div class="controls">
+        <gravatar-image data-gravatar-email="dog.gravatar" data-gravatar-size="120" data-gravatar-default="mm" ></gravatar-image>
+      </div>
+
     </div>
     <div class="control-group">
       <div class="controls">

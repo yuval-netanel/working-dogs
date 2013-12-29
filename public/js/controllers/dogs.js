@@ -3,7 +3,8 @@ angular.module('mean.dogs').controller('DogsController', ['$scope', '$routeParam
 
     $scope.create = function() {
         var dog = new Dogs({
-            name: this.name
+            name: this.name,
+            gravatar: this.gravatar
         });
         dog.$save(function(response) {
             console.log("response-" + response._id);
@@ -11,6 +12,7 @@ angular.module('mean.dogs').controller('DogsController', ['$scope', '$routeParam
         });
 
         this.name = "";
+        this.gravatar = "";
     };
 
     $scope.findOne = function() {

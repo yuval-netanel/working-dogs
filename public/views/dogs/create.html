@@ -2,13 +2,22 @@
   <form class="form-horizontal" data-ng-submit="create()">
     <div class="control-group">
       <label class="control-label" for="name">Name</label>
+
       <div class="controls">
-        <input type="name" data-ng-model="name" id="name" placeholder="Name" required>
+        <input type="text" data-ng-model="name" id="name" placeholder="Name" required>
+        </input>
       </div>
+
+      <label class="control-label" for="gravatar">Gravatar</label>
       <div class="controls">
-<input type="file" accept="image/*" image="image"/>
-<img ng-show="image" ng-src="{{image.url}}" type="{{image.file.type}}" />
+        <input type="text" data-ng-model="gravatar" id="gravatar" placeholder="Gravatar" required>
+        </input>
       </div>
+
+      <div class="controls">
+         <gravatar-image data-gravatar-email="dog.gravatar" data-gravatar-size="120" data-gravatar-default="mm" ></gravatar-image>
+      </div>
+
     </div>
     <div class="control-group">
       <div class="controls">
