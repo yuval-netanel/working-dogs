@@ -78,7 +78,6 @@ exports.show = function(req, res) {
  * List of Dogs
  */
 exports.all = function(req, res) {
-    console.log("bbbbbbbb" + req);
     Dog.find().sort('-created').populate('user', 'name username').exec(function(err, dogs) {
         if (err) {
             res.render('error', {

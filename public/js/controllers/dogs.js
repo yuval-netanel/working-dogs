@@ -1,12 +1,22 @@
 angular.module('mean.dogs').controller('DogsController', ['$scope', '$routeParams', '$location', 'Global', 'Dogs', function ($scope, $routeParams, $location, Global, Dogs) {
     $scope.global = Global;
 
+    $scope.toggleSelection = function($event, dogId) {
+        var idx = $scope.dog.blacklist.indexOf(dogId);
+
+        if (idx > -1)
+            $scope.dog.blacklist.splice(idx, 1);
+        else
+            $scope.dog.blacklist.push(dogId);
+    }
+
+    $scope.new = function() {
+        $scope.dog = new Dogs({blacklist: []});
+        $scope.find();
+    }
+
     $scope.create = function() {
-        var dog = new Dogs({
-            name: this.name,
-            gravatar: this.gravatar
-        });
-        dog.$save(function(response) {
+        $scope.dog.$save(function(response) {
             console.log("response-" + response._id);
             $location.path("dogs/" + response._id);
         });
@@ -14,6 +24,11 @@ angular.module('mean.dogs').controller('DogsController', ['$scope', '$routeParam
         this.name = "";
         this.gravatar = "";
     };
+
+    $scope.edit = function() {
+        $scope.findOne();
+        $scope.find();
+    }
 
     $scope.findOne = function() {
         Dogs.get({
