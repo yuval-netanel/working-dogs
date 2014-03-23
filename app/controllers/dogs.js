@@ -42,6 +42,7 @@ exports.create = function(req, res) {
  */
 exports.update = function(req, res) {
     var dog = req.dog;
+    console.log(dog);
 
     dog = _.extend(dog, req.body);
 

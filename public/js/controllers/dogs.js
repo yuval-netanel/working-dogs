@@ -8,12 +8,12 @@ angular.module('mean.dogs').controller('DogsController', ['$scope', '$routeParam
             $scope.dog.blacklist.splice(idx, 1);
         else
             $scope.dog.blacklist.push(dogId);
-    }
+    };
 
     $scope.new = function() {
         $scope.dog = new Dogs({blacklist: []});
         $scope.find();
-    }
+    };
 
     $scope.create = function() {
         $scope.dog.$save(function(response) {
@@ -28,7 +28,7 @@ angular.module('mean.dogs').controller('DogsController', ['$scope', '$routeParam
     $scope.edit = function() {
         $scope.findOne();
         $scope.find();
-    }
+    };
 
     $scope.findOne = function() {
         Dogs.get({
