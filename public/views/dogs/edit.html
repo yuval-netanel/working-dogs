@@ -1,4 +1,4 @@
-<section data-ng-controller="DogsController" data-ng-init="findOne()">
+<section data-ng-controller="DogsController" data-ng-init="edit()">
   <form class="form-horizontal" data-ng-submit="update()">
     <div class="control-group">
       <label class="control-label" for="name">Name</label>
@@ -17,6 +17,32 @@
       <div class="controls">
         <gravatar-image data-gravatar-email="dog.gravatar" data-gravatar-size="120" data-gravatar-default="mm" ></gravatar-image>
       </div>
+
+      </br>
+
+      <table ng-table="tableParams" class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Does not get along with</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="otherDog in dogs">
+              <td data-title="'Name'">
+                <gravatar-image data-gravatar-email="otherDog.gravatar" data-gravatar-size="60" data-gravatar-default="mm" ></gravatar-image>
+              </td>
+              <td data-title="'Name'">
+                {{otherDog.name}}, {{otherDog._id}}
+              </td>
+              <td data-title="'Name'">
+                <input type="checkbox" ng-checked="dog.blacklist.indexOf(otherDog._id) > -1"
+                                       ng-click="toggleSelection(otherDog._id)"/>
+              </td>
+          </tr>
+        </tbody>
+      </table>
 
     </div>
     <div class="control-group">

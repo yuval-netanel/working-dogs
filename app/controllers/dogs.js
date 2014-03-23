@@ -42,6 +42,7 @@ exports.create = function(req, res) {
  */
 exports.update = function(req, res) {
     var dog = req.dog;
+    console.log(dog);
 
     dog = _.extend(dog, req.body);
 
@@ -78,7 +79,6 @@ exports.show = function(req, res) {
  * List of Dogs
  */
 exports.all = function(req, res) {
-    console.log("bbbbbbbb" + req);
     Dog.find().sort('-created').populate('user', 'name username').exec(function(err, dogs) {
         if (err) {
             res.render('error', {

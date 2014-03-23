@@ -27,6 +27,10 @@ var DogSchema = new Schema({
     user: {
         type: Schema.ObjectId,
         ref: 'User'
+    },
+    blacklist: {
+        type: [{type: Schema.ObjectId, ref: 'DogSchema'}],
+        default: []
     }
 });
 
