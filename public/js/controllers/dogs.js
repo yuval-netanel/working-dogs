@@ -68,6 +68,9 @@ angular.module('mean.dogs').controller('DogsController', ['$scope', '$routeParam
 
     $scope.find = function() {
         Dogs.query(function(dogs) {
+            dogs = _.filter(dogs, function(dog) {
+                 return dog._id !== $scope.dog._id;
+            });
             $scope.dogs = dogs;
         });
     };
