@@ -17,13 +17,21 @@ script(type='text/javascript', src='/js/filters.js')
 //Application Services
 script(type='text/javascript', src='/js/services/global.js')
 script(type='text/javascript', src='/js/services/articles.js')
+script(type='text/javascript', src='/js/services/dogs.js')
 
 //Application Controllers
 script(type='text/javascript', src='/js/controllers/articles.js')
+script(type='text/javascript', src='/js/controllers/dogs.js')
 script(type='text/javascript', src='/js/controllers/index.js')
-script(type='text/javascript', src='/js/controllers/header.js')	
+script(type='text/javascript', src='/js/controllers/header.js')
 script(type='text/javascript', src='/js/init.js')
 
+
+script(type='text/javascript', src='/lib/angularjs-gravatar/src/gravatar-directive.js')
+script(type='text/javascript', src='/lib/angularjs-gravatar/src/md5-service.js')
+script(type='text/javascript', src='/lib/ng-table/ng-table.js')
+script(type='text/javascript', src='/lib/underscore/underscore-min.js')
+
 if (req.host='localhost')
-    //Livereload script rendered 
-    script(type='text/javascript', src='http://localhost:35729/livereload.js')	
+    //Livereload script rendered
+    script(type='text/javascript', src='http://localhost:35729/livereload.js')
