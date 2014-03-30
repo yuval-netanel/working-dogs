@@ -7,19 +7,19 @@ var mongoose = require('mongoose'),
 
 
 /**
- * Article Schema
+ * Dog Schema
  */
-var ArticleSchema = new Schema({
+var DogSchema = new Schema({
     created: {
         type: Date,
         default: Date.now
     },
-    title: {
+    name: {
         type: String,
         default: '',
         trim: true
     },
-    content: {
+    gravatar: {
         type: String,
         default: '',
         trim: true
@@ -27,20 +27,24 @@ var ArticleSchema = new Schema({
     user: {
         type: Schema.ObjectId,
         ref: 'User'
+    },
+    blacklist: {
+        type: [{type: Schema.ObjectId, ref: 'DogSchema'}],
+        default: []
     }
 });
 
 /**
  * Validations
  */
-ArticleSchema.path('title').validate(function(title) {
-    return title.length;
-}, 'Title cannot be blank');
+DogSchema.path('name').validate(function(name) {
+    return name.length;
+}, 'Name cannot be blank');
 
 /**
  * Statics
  */
-ArticleSchema.statics = {
+DogSchema.statics = {
     load: function(id, cb) {
         this.findOne({
             _id: id
@@ -48,4 +52,4 @@ ArticleSchema.statics = {
     }
 };
 
-mongoose.model('Article', ArticleSchema);
+mongoose.model('Dog', DogSchema);
