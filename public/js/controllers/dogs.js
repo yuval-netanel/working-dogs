@@ -1,7 +1,7 @@
-angular.module('mean.dogs').controller('DogsController', ['$scope', '$routeParams', '$location', 'Global', 'Dogs', function ($scope, $routeParams, $location, Global, Dogs) {
+angular.module('dogs').controller('DogsController', ['$scope', '$routeParams', '$location', 'Global', 'Dogs', function ($scope, $routeParams, $location, Global, Dogs) {
     $scope.global = Global;
 
-    $scope.toggleSelection = function(dogId) {
+    $scope.toggleBlacklist = function(dogId) {
         var idx = $scope.dog.blacklist.indexOf(dogId);
 
         if (idx > -1)
